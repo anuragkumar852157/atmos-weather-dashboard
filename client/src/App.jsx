@@ -33,7 +33,7 @@ function App() {
       const { latitude, longitude, name } = location;
 
       const response = await axios.get(
-        'http://localhost:5000/api/weather',
+        'https://atmos-weather-api-ho4c.onrender.com/api/weather',
         {
           params: {
             lat: latitude,

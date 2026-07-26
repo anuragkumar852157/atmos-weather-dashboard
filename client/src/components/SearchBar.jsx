@@ -25,11 +25,15 @@ export const SearchBar = ({ onSearch }) => {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:5000/api/search?q=${query}`);
-        setSuggestions(res.data);
-      } catch (error) {
-        console.error('Error fetching suggestions:', error);
-      }
+  const res = await axios.get(
+    `https://atmos-weather-api-ho4c.onrender.com/api/search?q=${encodeURIComponent(query)}`
+  );
+
+  setSuggestions(res.data);
+} catch (error) {
+  console.error('Error fetching suggestions:', error);
+  setSuggestions([]);
+}
     };
 
     const debounceTimer = setTimeout(fetchSuggestions, 300);
