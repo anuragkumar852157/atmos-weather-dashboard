@@ -1,5 +1,9 @@
 # Atmos — Full-Stack Weather Dashboard
 
+## Live Demo
+
+[Open Atmos Weather Dashboard](https://atmos-weather-dashboard.onrender.com)
+
 **Company:** CODTECH IT SOLUTIONS  
 **Name:** ANURAG KUMAR  
 **Intern ID:** CTIS4487  
