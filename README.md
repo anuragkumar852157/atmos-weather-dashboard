@@ -4,13 +4,9 @@
 
 [Open Atmos Weather Dashboard](https://atmos-weather-dashboard.onrender.com)
 
-**Company:** CODTECH IT SOLUTIONS  
-**Name:** ANURAG KUMAR  
-**Intern ID:** CTIS4487  
-**Domain:** FULL STACK WEB DEVELOPMENT  
-**Duration:** 16 WEEKS  
-**Mentor:** NEELA SANTOSH KUMAR  
+## Internship Project
 
+Completed as part of the Full Stack Web Development Internship at CODTECH IT SOLUTIONS.
 ---
 
 ## Project Overview
@@ -369,11 +365,7 @@ Possible future enhancements include:
 ## Author
 
 **Anurag Kumar**  
-Full Stack Web Development Intern  
-CODTECH IT SOLUTIONS
+Full Stack Web Developer
 
----
 
-## Acknowledgement
 
-This project was completed as part of the Full Stack Web Development internship task at CODTECH IT SOLUTIONS under the mentorship of Neela Santosh Kumar.
