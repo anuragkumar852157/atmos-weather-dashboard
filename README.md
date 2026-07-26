@@ -7,15 +7,16 @@
 ## Internship Project
 
 Completed as part of the Full Stack Web Development Internship at CODTECH IT SOLUTIONS.
+
 ---
 
 ## Project Overview
 
-This project is a responsive full-stack weather dashboard built with React, Node.js, and Express.js.
+Atmos is a responsive full-stack weather dashboard built with React, Node.js, and Express.js.
 
-The application uses the Open-Meteo weather and geocoding APIs to search for cities and display current weather conditions along with a multi-day forecast.
+The application uses the Open-Meteo weather and geocoding APIs to search for cities and display current weather conditions together with a multi-day forecast.
 
-The project includes a clean product-style interface, loading states, error handling, light and dark themes, city autocomplete, and a timestamp showing when the application successfully fetched the weather data.
+The project includes a clean product-style interface, city autocomplete, loading states, error handling, light and dark themes, responsive layouts, and a timestamp showing when weather data was fetched.
 
 ---
 
@@ -30,11 +31,11 @@ The project includes a clean product-style interface, loading states, error hand
 - Precipitation details
 - Multi-day weather forecast
 - Weather-condition icons based on WMO weather codes
-- Actual data-fetch time display
+- Weather data-fetch timestamp
 - Loading skeletons while data is being fetched
 - Clear error messages when requests fail
 - Light and dark theme support
-- Responsive layout for desktop, tablet, and mobile devices
+- Responsive layout for desktop, tablet, and mobile screens
 - Open-Meteo data-source attribution
 
 ---
@@ -81,16 +82,23 @@ The project includes a clean product-style interface, loading states, error hand
 │   │   ├── App.jsx
 │   │   ├── index.css
 │   │   └── main.jsx
+│   ├── package-lock.json
 │   ├── package.json
 │   └── vite.config.js
 │
+├── screenshots/
+│   └── jaipur-weather.png
+│
 ├── server/
-│   ├── .env
 │   ├── index.js
+│   ├── package-lock.json
 │   └── package.json
 │
+├── .gitignore
 └── README.md
 ```
+
+> Secret files such as `.env` are intentionally excluded from the repository and must never be committed to GitHub.
 
 ---
 
@@ -110,7 +118,19 @@ The project includes a clean product-style interface, loading states, error hand
    - Wind speed
    - Precipitation
    - Forecast data
-   - Fetch time
+   - Data-fetch time
+
+---
+
+## Deployment
+
+The frontend and backend are deployed separately on Render.
+
+- **Live Application:** [Open Atmos Weather Dashboard](https://atmos-weather-dashboard.onrender.com)
+- **Frontend Hosting:** Render Static Site
+- **Backend Hosting:** Render Web Service
+
+The free Render backend may enter an inactive state after a period without traffic. The first request after inactivity may therefore take additional time.
 
 ---
 
@@ -118,7 +138,7 @@ The project includes a clean product-style interface, loading states, error hand
 
 ### Prerequisites
 
-Make sure the following software is installed:
+Install the following software before running the project locally:
 
 - Node.js
 - npm
@@ -126,9 +146,9 @@ Make sure the following software is installed:
 
 ---
 
-## Backend Setup
+### Backend Setup
 
-Open a terminal in the project folder and navigate to the backend directory:
+Open a terminal in the project root and navigate to the backend directory:
 
 ```bash
 cd server
@@ -146,19 +166,19 @@ Start the backend server:
 npm start
 ```
 
-The backend runs on:
+The local backend normally runs at:
 
 ```text
 http://localhost:5000
 ```
 
-Keep this terminal running.
+Keep this terminal running while using the local frontend.
 
 ---
 
-## Frontend Setup
+### Frontend Setup
 
-Open another terminal and navigate to the frontend directory:
+Open another terminal in the project root and navigate to the frontend directory:
 
 ```bash
 cd client
@@ -176,13 +196,28 @@ Start the Vite development server:
 npm run dev
 ```
 
-The frontend normally runs on:
+The local frontend normally runs at:
 
 ```text
 http://localhost:5173
 ```
 
 Open this address in a browser.
+
+> The localhost addresses are used only during local development. The deployed application communicates with the Render backend.
+
+---
+
+## Security and Secret Management
+
+- Do not commit `.env` files to GitHub.
+- Do not place API keys, passwords, tokens, or private credentials directly in source code.
+- Store deployment secrets using the hosting provider’s environment-variable settings.
+- Keep `node_modules` and generated build directories excluded through `.gitignore`.
+- Review staged files with `git status` before every commit.
+- Run `npm audit` periodically in both the frontend and backend directories.
+
+This project currently uses Open-Meteo APIs, which do not require a private API key for the implemented endpoints.
 
 ---
 
@@ -200,7 +235,7 @@ Example:
 GET /api/search?q=Jaipur
 ```
 
-This endpoint returns matching cities with their names, regions, countries, latitudes, and longitudes.
+This endpoint returns matching locations, including their names, regions, countries, latitudes, and longitudes.
 
 ---
 
@@ -232,30 +267,28 @@ This endpoint returns:
 
 ## Important Code Improvements
 
-During project completion and testing, the following improvements were made:
+The following improvements were made during development and testing:
 
 - Reinstalled frontend and backend dependencies
-- Resolved npm dependency vulnerabilities
 - Fixed ESLint errors
 - Improved React state handling
 - Removed invalid nested HTML elements
-- Added proper API error handling
-- Added city autocomplete support
+- Added API error handling
+- Added city autocomplete
 - Added Open-Meteo attribution
-- Added the actual weather-fetch timestamp
+- Added the weather data-fetch timestamp
 - Replaced the original glassmorphism layout with a cleaner product-style dashboard
 - Improved desktop and mobile responsiveness
-- Improved forecast-card layout
+- Improved the forecast-card layout
 - Added light and dark theme support
-- Verified the production build
+- Connected the deployed frontend to the deployed backend
+- Verified the frontend production build
 
 ---
 
-## Validation and Testing
+## Validation Commands
 
-The project was tested using the following commands.
-
-### Security Audit
+### Dependency Audit
 
 Run inside both the `client` and `server` directories:
 
@@ -263,11 +296,7 @@ Run inside both the `client` and `server` directories:
 npm audit
 ```
 
-Expected result after fixes:
-
-```text
-found 0 vulnerabilities
-```
+Review the command output and address any reported vulnerabilities before production use.
 
 ### Frontend Lint Check
 
@@ -287,65 +316,66 @@ Run inside the `client` directory:
 npm run build
 ```
 
-The production build was completed successfully.
-
-Example successful output:
+The generated production files are stored locally in:
 
 ```text
-✓ modules transformed
-✓ built successfully
+client/dist
 ```
 
-The generated production files are stored in the `client/dist` directory.
+The `dist` directory is generated automatically and is not committed to the repository.
 
 ---
 
-## Testing Checklist
+## Verified Testing
 
-The following cases should be checked before final submission:
+The following checks were completed:
 
-- Search for Jaipur
-- Search for Delhi
-- Search for another valid city
-- Test city autocomplete
-- Test an invalid or incomplete city name
-- Test the loading state
-- Stop the backend and verify the error message
-- Test light mode
-- Test dark mode
-- Test the application on a narrow mobile screen
-- Run `npm run lint`
-- Run `npm run build`
+- Jaipur weather search
+- Frontend-to-backend communication
+- Live deployed frontend
+- Live deployed backend
+- Light theme
+- Dark theme
+- Frontend lint check using `npm run lint`
+- Frontend production build using `npm run build`
+
+Additional recommended checks before future releases:
+
+- Search for multiple valid cities
+- Invalid or incomplete city input
+- Loading-state behaviour
+- Backend-unavailable error handling
+- Narrow mobile-screen layout
+- Cross-browser testing
 
 ---
 
 ## Screenshots
 
 ![Jaipur Weather Result](screenshots/jaipur-weather.png)
+
 ---
 
 ## Data Source
 
 Weather and geocoding data are provided by Open-Meteo.
 
-The application may display slightly different values from Google Weather or other weather services because different providers can use different weather models, observation sources, locations, and update times.
+Weather values may differ slightly from Google Weather or other providers because services can use different weather models, observation sources, locations, and update schedules.
 
 ---
 
 ## Limitations
 
-- The project currently runs locally.
-- The backend URL is configured for `localhost`.
-- Weather values may differ slightly from other weather providers.
 - The application requires an internet connection to fetch weather data.
-- The frontend and backend must both be running locally.
-- Deployment configuration is not yet included.
+- Weather values may differ slightly between providers.
+- The free Render backend may take additional time to respond after inactivity.
+- Hourly forecasts are not currently available.
+- Weather alerts are not currently available.
+- Automatic current-location detection is not currently available.
 
 ---
 
 ## Future Improvements
-
-Possible future enhancements include:
 
 - Automatic current-location weather
 - Hourly weather forecast
@@ -356,9 +386,9 @@ Possible future enhancements include:
 - Unit switching between Celsius and Fahrenheit
 - Backend rate limiting
 - Request caching
-- Environment-based frontend API URL
-- Cloud deployment
+- Environment-variable-based frontend API configuration
 - Automated testing
+- Broader cross-browser testing
 
 ---
 
@@ -366,6 +396,3 @@ Possible future enhancements include:
 
 **Anurag Kumar**  
 Full Stack Web Developer
-
-
-
